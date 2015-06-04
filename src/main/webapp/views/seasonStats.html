@@ -1,0 +1,56 @@
+<div>
+	<form name="lolChampList">
+        <div>
+			<input type="text" required placeholder="summoner name"  name="summoner" ng-model="summoner" />
+			<button type="submit" ng-click="getStats(summoner)" class="btn btn-default">Get Stats</button>		  
+		</div>
+		</br>
+		<div>
+			<div>
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th><a ng-click="sort='season'; reverse=!reverse">Season</a></th>
+							<th>Total Damage Taken</th>
+							<th>Total Physical Damage Dealt</th>
+							<th>Total Magic Damage Dealt</th>
+							<th>Total Damage Dealt</th>
+							<th>Total Double Kills</th>
+							<th>Total Triple Kills</th>
+							<th>Total Quadra Kills</th>
+							<th>Total Penta Kills</th>
+							<th>Total Minions Kills</th>
+							<th>Max champions Killed</th>
+							<th>Total champions Killed</th>
+							<th>Total Sessions Won</th>
+							<th>Total Sessions Lost</th>
+							<th>Total Sessions played</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="stat in seasonStats | orderBy:sort:reverse" ng-show="!error">
+							<td>{{stat.season}}</td>
+							<td>{{stat.stats.totalDamageTaken | number}}</td>
+							<td>{{stat.stats.totalPhysicalDamageDealt | number}}</td>
+							<td>{{stat.stats.totalMagicDamageDealt | number}}</td>
+							<td>{{stat.stats.totalDamageDealt | number}}</td>
+							<td>{{stat.stats.totalDoubleKills | number}}</td>
+							<td>{{stat.stats.totalTripleKills | number}}</td>
+							<td>{{stat.stats.totalQuadraKills | number}}</td>
+							<td>{{stat.stats.totalPentaKills | number}}</td>
+							<td>{{stat.stats.totalMinionKills | number}}</td>
+							<td>{{stat.stats.maxChampionsKilled | number}}</td>
+							<td>{{stat.stats.totalChampionKills | number}}</td>
+							<td>{{stat.stats.totalSessionsWon | number}}</td>
+							<td>{{stat.stats.totalSessionsLost | number}}</td>
+							<td>{{stat.stats.totalSessionsPlayed | number}}</td>
+						</tr>
+						<tr ng-show="error">
+							<td colspan="15">{{error}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</form>
+</div>

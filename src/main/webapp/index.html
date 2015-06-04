@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="lolChampViewer">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>LolChampViewer</title>
+
+	<script data-required="angular.js@*" data-semver="1.3.0-beta.5"	src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+	<script data-required="angular-route@*" data-semver="1.2.14" src="https://code.angularjs.org/1.2.14/angular-route.js"></script>
+	
+	<script src="scripts/i18n/angular-locale_nl-be.js"></script>
+
+	<script src="scripts/app.js"></script>
+	<script src="scripts/controller/lolChampListController.js"></script>
+	<script src="scripts/controller/lolChampController.js"></script>
+	<script src="scripts/controller/seasonStatsController.js"></script>
+	<script src="scripts/controller/currentMenu.js"></script>
+
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div ng-controller="MyMenuController">
+			<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">LolChampViewer</a>
+			    </div>
+			
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+			      <ul class="nav navbar-nav">
+			        <li class="active" ng-show="isMenu('champs')"><a href="#champs">Champions<span class="sr-only">(current)</span></a></li>
+			        <li ng-show="!isMenu('champs')"><a href="#champs">Champions</a></li>
+			        <li class="active" ng-show="isMenu('seasonStats')"><a href="#seasonStats">Season Stats<span class="sr-only">(current)</span></a></li>
+			        <li ng-show="!isMenu('seasonStats')"><a href="#seasonStats">Season Stats</a></li>
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+
+		<h1>lolChampViewer</h1>
+		<div ng-view></div>		
+
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

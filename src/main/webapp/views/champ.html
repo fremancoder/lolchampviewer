@@ -1,0 +1,14 @@
+<div>
+	<div class="row" >
+		<h3 style="display: inline;">{{champ.name}}</h3>
+		<blockquote>
+			<small>{{champ.title}}</small>
+			<p><span ng-bind-html="champ.lore | to_trusted"></span></p>
+		</blockquote>
+	</div>
+	<div class="row" >
+		<div ng-repeat="skin in champ.skins">
+			<img ng-src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champ.key}}_{{skin.num}}.jpg"/>
+		</div>		
+	</div>
+</div>

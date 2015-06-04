@@ -1,0 +1,36 @@
+<div>
+	<form name="lolChampList">
+		<div class="filter">
+			<label for="filter">filter:</label> 
+			<input type="text" name="filter" ng-model="filter" />
+		</div>
+		</br>
+		<div>
+			<div>
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th><a ng-click="sort='title'; reverse=!reverse">Title</a></th>
+							<th><a ng-click="sort='name'; reverse=!reverse">Name</a></th>
+							<th><a ng-click="sort='key'; reverse=!reverse">Key</a></th>
+							<th>details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="champ in champs | array | filter:filter | orderBy:sort:reverse" ng-show="!error">
+							<td>{{champ.id}}</td>
+							<td>{{champ.title}}</td>
+							<td>{{champ.name}}</td>
+							<td>{{champ.key}}</td>
+							<td><a ng-click="showDetails(champ.id)">View champ</a></td>
+						</tr>
+						<tr ng-show="error">
+							<td colspan="7">{{error}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</form>
+</div>
